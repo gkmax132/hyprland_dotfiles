@@ -1,7 +1,10 @@
 # hyprland_dotfiles
 
  <details> 
-  <summary>Waybar themes</summary>
+  <summary> Waybar themes </summary>
+   <details>
+    <summary> Monochrome </summary>
+   </details>
 </details>
  
  
