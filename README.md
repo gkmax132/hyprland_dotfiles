@@ -5,9 +5,7 @@
   <summary> Waybar themes </summary>
 
    <details>
-    
-    <summary> Monochrome </summary>
-    
+    <summary> Monochrome </summary>    
    </details>
 
 </details>
