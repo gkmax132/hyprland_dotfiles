@@ -1,8 +1,8 @@
 # hyprland_dotfiles
 
  <details> 
-  <sumary> Waybar themes </sumary>
+  <summary>Waybar themes</summary>
 
- </details>
+</details>
  
  
