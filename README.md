@@ -136,9 +136,8 @@ This section describes two Bash scripts for managing desktop wallpapers in a Hyp
 - **`wallpaper.sh`** supports custom display modes, whereas **`change_wallpaper.sh`** uses a fixed `fill` mode.
 - **`change_wallpaper.sh`** includes icon previews and notifications, which `wallpaper.sh` lacks.
 
-### Example
 <details>
-  <summary>Change_wallpaper.sh</summary>
+  <summary> Example change_wallpaper.sh </summary>
   
   ![Wallpaper Change Demo](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/rofi/change_wallpaper.png)
 </details>
