@@ -1,8 +1,7 @@
 # hyprland_dotfiles
 
  <details> 
-  
-- **Default keybinds**: Parts similar to Windows and GNOME. Hit Super+/ for a list.
+  <summary> waybars </summary>
      <details> 
        <summary>Here's an image, just in case:</summary>
     
