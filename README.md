@@ -14,8 +14,8 @@
       ![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/personal.png) 
   -
      <details>
-      <summary> Personal </summary>
+      <summary> Cyberpunk </summary>
 
-      ![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/personal.png) 
+      ![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/cyberpunk.png) 
       
      </details>
