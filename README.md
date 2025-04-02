@@ -1,7 +1,7 @@
 <details> 
-  <summary>Instructions</summary>
+  <summary> Waybar themes </summary>
     
-   - **Default keybinds**: Parts similar to Windows and GNOME. Hit Super+/ for a list.
+   - **Monochrome**
      <details> 
        <summary>Here's an image, just in case:</summary>
     
