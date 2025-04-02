@@ -3,9 +3,8 @@
  <details> 
   
   <summary> Waybar themes </summary>
-
-   <details>
     - wqeqweliwqjeilqwjeqweqleijqw
+   <details>
     <summary> Monochrome </summary>    
    </details>
 
