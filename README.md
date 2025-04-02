@@ -1,4 +1,4 @@
-
+# Hyprland Dotfiles
 <details> 
   <summary> Waybar themes </summary>
   
