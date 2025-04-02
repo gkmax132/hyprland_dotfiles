@@ -142,5 +142,4 @@ This section describes two Bash scripts for managing desktop wallpapers in a Hyp
   
   ![Wallpaper Change Demo](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/gifs/wallpaper_change.gif)
 </details>
-*Note: Replace the GIF path with an actual demo if available.*
 
