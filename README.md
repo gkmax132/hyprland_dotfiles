@@ -2,7 +2,6 @@
 
  <details> 
   <summary>Waybar themes</summary>
-
 </details>
  
  
