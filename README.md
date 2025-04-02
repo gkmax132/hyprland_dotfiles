@@ -5,6 +5,7 @@
   <summary> Waybar themes </summary>
 
    <details>
+    - wqeqweliwqjeilqwjeqweqleijqw
     <summary> Monochrome </summary>    
    </details>
 
