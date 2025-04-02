@@ -88,7 +88,7 @@ The `term.sh` script is a universal launcher for the [Kitty terminal emulator](h
 <details>
   <summary>Example</summary>
   
-  ![Menu.sh Demo](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/gifs/menu_demo.gif)
+  ![Menu.sh Demo](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/rofi/menu_sh.png)
 </details>
 
 ### Requirements
