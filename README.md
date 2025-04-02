@@ -94,3 +94,53 @@ The `term.sh` script is a universal launcher for the [Kitty terminal emulator](h
 ### Requirements
 - `bash` and `rofi` must be installed.
 - All referenced scripts (`change_wallpaper.sh`, `waybar.sh`, `kitty.sh`, `animation.sh`, `change_border.sh`, `toggle_blur.sh`) must exist in `~/.scripts/`.
+
+## Wallpaper Management Scripts
+
+This section describes two Bash scripts for managing desktop wallpapers in a Hyprland environment using `swaybg`: `wallpaper.sh` and `change_wallpaper.sh`. Both scripts set wallpapers, but they differ in their approach and user interaction.
+
+### `wallpaper.sh`
+`wallpaper.sh` is a flexible script for setting or restoring wallpapers with customizable display options. It caches the last wallpaper settings for easy restoration.
+
+#### Features
+- **Set Wallpaper**: Applies a wallpaper from a specified image path with an optional display mode (e.g., `-m fill`, `-m fit`, defaults to `fill`).
+- **Restore Wallpaper**: Uses the `-r` flag to reload the last wallpaper settings from `~/.cache/swaybg/swaybg_last`.
+- **Cache Management**: Stores the active wallpaper command in `~/.cache/swaybg/swaybg_last`.
+- **Process Control**: Terminates any running `swaybg` instance before applying a new wallpaper.
+
+#### Usage
+- `./wallpaper.sh image_path [option]` - Set a new wallpaper (e.g., `./wallpaper.sh ~/image.jpg -m fit`).
+- `./wallpaper.sh -r` - Restore the last wallpaper.
+
+### `change_wallpaper.sh`
+`change_wallpaper.sh` provides an interactive menu via `rofi` to select and apply wallpapers from a predefined directory, with visual previews and notifications.
+
+#### Features
+- **Interactive Selection**: Lists images from `~/.wallpaper/` in a `rofi` menu with icon previews.
+- **Wallpaper Application**: Applies the selected wallpaper using `swaybg` with a fixed `-m fill` mode.
+- **Cache Management**: Saves the applied wallpaper command to `~/.cache/swaybg/swaybg_last`.
+- **User Feedback**: Sends a notification via `notify-send` with the name of the selected wallpaper.
+- **Error Handling**: Notifies the user if the wallpaper directory is missing.
+
+#### Usage
+- `./change_wallpaper.sh` - Opens the `rofi` menu to choose a wallpaper from `~/.wallpaper/`.
+
+### Shared Requirements
+- `swaybg` for wallpaper rendering.
+- `rofi` (for `change_wallpaper.sh` only) for the menu interface.
+- `notify-send` (for `change_wallpaper.sh` only) for notifications.
+- Wallpapers must be accessible in the specified paths (`~/.wallpaper/` for `change_wallpaper.sh` or any path for `wallpaper.sh`).
+
+### Key Differences
+- **`wallpaper.sh`** is command-line driven, offering flexibility in options and manual control, while **`change_wallpaper.sh`** is user-friendly with a graphical menu.
+- **`wallpaper.sh`** supports custom display modes, whereas **`change_wallpaper.sh`** uses a fixed `fill` mode.
+- **`change_wallpaper.sh`** includes icon previews and notifications, which `wallpaper.sh` lacks.
+
+### Example
+<details>
+  <summary>Demo of change_wallpaper.sh</summary>
+  
+  ![Wallpaper Change Demo](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/gifs/wallpaper_change.gif)
+</details>
+*Note: Replace the GIF path with an actual demo if available.*
+
