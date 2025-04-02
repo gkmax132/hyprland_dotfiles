@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHOICE=$(echo -e "Change wallpaper\nChange waybar theme\nKitty theme selector\nHypr animation selector\nChange border\nToggle blur" | rofi -dmenu -p -theme anime "Выбери действие:")
+CHOICE=$(echo -e "Change wallpaper\nChange waybar theme\nKitty theme selector\nHypr animation selector\nChange border\nToggle blur" | rofi -dmenu -p "Choose an action")
 
 case "$CHOICE" in
     "Change wallpaper") sh $HOME/.scripts/change_wallpaper.sh ;;
