@@ -1,13 +1,14 @@
-# hyprland_dotfiles
-
- <details> 
-  
-  <summary> Waybar themes </summary>
-       <details> 
-       <summary> ‎&emsp Here's an image, just in case: " </summary>    
-       ![image](https://github.com/end-4/dots-hyprland/assets/97237370/4c3d27b4-9ac5-4e55-9cae-c5c1f497890f)
-     </details>
-
+<details>
+  <summary>Waybar themes</summary>
+  <details>
+    <summary>Here’s an image, just in case:</summary>
+    <!-- Content for the nested details goes here -->
+  </details>
 </details>
- 
- 
+
+<style>
+  /* Style the nested summary to add indentation */
+  details details summary {
+    padding-left: 20px; /* Adds indentation to the second summary */
+  }
+</style>
