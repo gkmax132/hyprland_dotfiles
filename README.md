@@ -35,3 +35,9 @@ The `term.sh` script is a universal launcher for the Kitty terminal emulator. It
 - Applies a custom Kitty theme from `~/.config/kitty/current-theme.conf`.
 - Supports Bash, Zsh, Fish, and falls back to Bash for unrecognized shells.
 - Runs Kitty with a single instance using a Unix socket (`unix:@mykitty`).
+<details>
+<summary> Example </summary>
+  
+![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/gifs/kitty_theme_select.gif)
+
+</details>
