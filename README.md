@@ -1,5 +1,6 @@
 <details>
   <summary> Waybar themes </summary>
+  
   <details>
     <summary> **Monochrome** </summary>
     
