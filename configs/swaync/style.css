@@ -1,0 +1,173 @@
+@define-color text            #e6e6e7;          
+@define-color bg              rgba(7, 7, 7, 0.9); 
+@define-color selected        #AEAEAE;          
+@define-color hover           rgba(211, 211, 211, 0.9); 
+
+* {
+    outline: none;
+    transition: 300ms ease-in-out;
+    font-family: "JetBrains Mono", monospace;
+}
+
+.notification-row {
+    margin: 0;
+    padding: 0;
+}
+
+.notification-row .notification-background .close-button {
+    background: transparent;
+    color: @text;
+    margin: 4px;
+    padding: 0;
+    border-radius: 50%;
+    min-width: 28px;
+    min-height: 28px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.notification-row .notification-background .close-button:hover {
+    background: @hover;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+.notification-row .notification-background .notification {
+    background: alpha(@bg, 0.9);
+    border-radius: 12px;
+    margin: 5px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.notification-row .notification-background .notification .notification-action,
+.notification-row .notification-background .notification .notification-default-action {
+    color: @text;
+    border-radius: 8px;
+}
+
+.notification-row .notification-background .notification .notification-action:hover,
+.notification-row .notification-background .notification .notification-default-action:hover {
+    background: @hover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.notification-group .notification-group-headers {
+    margin: 12px 0;
+}
+
+.notification-group .notification-group-headers .notification-group-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: @selected;
+}
+
+.notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
+    box-shadow: 0 4px 12px alpha(@hover, 0.5);
+}
+
+.control-center {
+    background: alpha(@bg, 0.7);
+    border: 2px solid @selected;
+    border-radius: 0px; /* Убраны закругления с основного окна */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    padding: 10px;
+}
+
+.control-center-clear-all {
+    background: @bg;
+    border-radius: 10px;
+    padding: 6px 12px;
+}
+
+.control-center-clear-all:hover {
+    background: @hover;
+    padding: 8px 12px;
+}
+
+.control-center-clear-all:active {
+    background: @selected;
+    padding: 6px 12px;
+}
+
+.widget-title {
+    background: none;
+    margin: 20px 15px 10px;
+    font-size: 22px;
+    color: @selected;
+}
+
+.widget-dnd {
+    background: none;
+    margin: 0 15px 15px;
+}
+
+.widget-dnd > switch {
+    background: @bg;
+    border-radius: 16px;
+    padding: 4px;
+}
+
+.widget-dnd > switch:hover {
+    background: @hover;
+}
+
+.widget-dnd > switch:checked {
+    background: @selected;
+}
+
+.widget-dnd > switch slider {
+    background: @text;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@define-color mpris-album-art-overlay rgba(0, 0, 0, 0.6);
+.widget-mpris .widget-mpris-player {
+    padding: 12px;
+    margin: 10px 15px;
+    background-color: @mpris-album-art-overlay;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: @text;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-subtitle {
+    font-size: 14px;
+    color: alpha(@text, 0.8);
+}
+
+.widget-buttons-grid {
+    background-color: alpha(@bg, 0.6);
+    padding: 10px;
+    margin: 0 15px;
+    border-radius: 12px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: alpha(@bg, 0.7);
+    border-radius: 10px;
+    min-width: 50px;
+    min-height: 50px;
+    font-size: 20px;
+    color: @text;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: @hover;
+    min-width: 54px;
+    min-height: 54px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:active {
+    background: @selected;
+    min-width: 46px;
+    min-height: 46px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+    background: @selected;
+}
