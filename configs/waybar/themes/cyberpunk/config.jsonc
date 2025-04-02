@@ -1,0 +1,85 @@
+{
+    "layer": "top",
+    "height": 24,
+    "spacing": 4,
+    "margin": "0 0 0 0",
+    "modules-left": ["hyprland/workspaces", "custom/terminal"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["tray", "pulseaudio", "network", "battery", "custom/keyboard", "clock", "custom/uptime"],
+
+    "hyprland/workspaces": {
+        "format": "[SYS:{name}]",
+        "format-occupied": "{name}",
+        "format-empty": "{name}",
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+
+    "hyprland/window": {
+        "format": "RUNNING: {title}",
+        "max-length": 20,
+        "rewrite": {
+            "(.*)": "$1..."
+        }
+    },
+
+    "pulseaudio": {
+        "format": "SND:{volume}%",
+        "format-muted": "SND:OFF",
+        "on-click": "pavucontrol",
+        "interval": "1"
+    },
+
+    "network": {
+        "interface": "wlp3s0",
+        "format-wifi": "NET:{essid}",
+        "format-disconnected": "NET:DOWN",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "$HOME/.scripts/wifi_menu.sh"
+    },
+
+    "battery": {
+        "bat": "BAT1",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format-charging": "PWR:{capacity}%+",
+        "format-discharging": "PWR:{capacity}%",
+        "format-full": "PWR:100%"
+    },
+
+    "custom/keyboard": {
+        "format": " {}",
+        "exec": "hyprctl -j devices | jq -r '.keyboards[] | select(.name==\"at-translated-set-2-keyboard\") | .active_keymap' | sed 's/Ukrainian/UA/; s/English (US)/US/'",
+        "interval": 1
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "SYS_TIME:{:%H:%M:%S}",
+        "tooltip-format": "{:%Y-%m-%d}"
+    },
+
+    "custom/uptime": {
+        "exec": "uptime -p | sed 's/up //'",
+        "interval": 60,
+        "format": "UPTIME:{}"
+    },
+
+    "custom/terminal": {
+        "format": "user@host:~$ ",
+        "on-click": "kitty --single-instance",
+	"on-click-right": "swaync-client --toggle-panel",
+        "interval": "once"
+    },
+
+    "tray": {
+        "spacing": 4
+    }
+}

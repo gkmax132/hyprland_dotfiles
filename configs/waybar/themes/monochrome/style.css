@@ -1,0 +1,120 @@
+/* Общие стили */
+* {
+    font-family: "JetBrains Mono", monospace; /* Твой шрифт */
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease; /* Плавные переходы */
+}
+
+/* Основной бар */
+#waybar {
+    background: rgba(7, 7, 7, 0.95); /* Основной фон */
+    color: #e6e6e7; /* Основной текст (foreground) */
+    border-bottom: 1px solid #807E80; /* Тонкая граница снизу (color1) */
+}
+
+/* Рабочие столы */
+#workspaces {
+    padding: 0 5px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background: transparent;
+    color: #AEAEAE; /* color4 для неактивных рабочих столов */
+    border-bottom: 2px solid transparent;
+    margin: 0 2px;
+}
+
+#workspaces button:hover {
+    background: #1A1A1A; /* Чуть светлее фона */
+    color: #e6e6e7; /* foreground */
+    border-bottom: 2px solid #807E80; /* color1 */
+}
+
+#workspaces button.focused {
+    background: #1A1A1A; /* Чуть светлее фона */
+    color: #A3BFFA; /* Светло-голубой для текста активного рабочего стола */
+    border-bottom: 2px solid #e6e6e7; /* Белое подчеркивание (foreground) */
+    box-shadow: 0 0 5px rgba(163, 191, 250, 0.5); /* Легкое свечение */
+}
+
+/* Дополнительно: если рабочий стол занят (есть окна), но не активен */
+#workspaces button.active {
+    color: #D3D3D3; /* color6 для занятых рабочих столов */
+    border-bottom: 2px solid #D3D3D3;
+}
+
+/* Окно */
+#window {
+    padding: 0 10px;
+    color: #e6e6e7; /* foreground */
+}
+
+/* Часы */
+#clock {
+    padding: 0 10px;
+    color: #e6e6e7; /* foreground */
+    font-weight: bold;
+}
+
+/* Музыкальный плеер */
+#custom-player {
+    padding: 0 10px;
+    color: #BEBEC0; /* color5 */
+}
+
+/* Яркость */
+#backlight {
+    padding: 0 10px;
+    color: #9F9EA0; /* color3 */
+}
+
+/* Звук */
+#pulseaudio {
+    padding: 0 10px;
+    color: #AEAEAE; /* color4 */
+}
+
+#pulseaudio.muted {
+    color: #A3BFFA; /* Светло-голубой для состояния "muted" */
+}
+
+/* Батарея */
+#battery {
+    padding: 0 10px;
+    color: #AEAEAE; /* color4 */
+}
+
+#battery.charging {
+    color: #D3D3D3; /* color6 для состояния зарядки */
+}
+
+#battery.critical {
+    color: #A3BFFA; /* Светло-голубой для низкого заряда */
+}
+
+/* Сеть */
+#network {
+    padding: 0 10px;
+    color: #909090; /* color2 */
+}
+
+#network.disconnected {
+    color: #A3BFFA; /* Светло-голубой для отключенной сети */
+}
+
+/* Кнопка выключения */
+#custom-power {
+    padding: 0 10px;
+    color: #D3D3D3; /* color6 */
+}
+
+/* Эффект при наведении на модули */
+#custom-player:hover, #backlight:hover, #pulseaudio:hover, #battery:hover, #network:hover, #custom-power:hover {
+    background: #1A1A1A;
+    color: #e6e6e7; /* foreground */
+}

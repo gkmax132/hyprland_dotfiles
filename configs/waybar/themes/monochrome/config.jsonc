@@ -1,0 +1,62 @@
+{
+  "layer": "top",
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/player", "backlight", "pulseaudio", "battery", "network", "custom/power"],
+
+  "hyprland/workspaces": {
+    "on-click": "activate"
+  },
+
+  "clock": {
+    "format": "{:%H:%M • %A, %d/%m}",
+    "tooltip-format": "{:%Y-%m-%d %H:%M:%S}",
+    "tooltip": true
+  },
+
+  "backlight": {
+    "format": " {percent}%",
+    "tooltip": false
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": " Muted",
+    "on-click": "pavucontrol",
+    "tooltip": false
+  },
+
+  "battery": {
+    "format": "  {capacity}%",
+    "format-charging": " {capacity}%",
+    "tooltip": false
+  },
+
+  "network": {
+    "format": "  {essid} ({signalStrength}%)",
+    "format-disconnected": " Disconnected",
+    "tooltip": false,
+    "on-click": "$HOME/.scripts/wifi_menu.sh"
+  },
+
+"custom/player": {
+    "format": " {}",
+    "exec": "playerctl metadata --format '{{title}} - {{artist}}' | awk '{if (length($0) > 40) print substr($0, 1, 37) \"...\"; else print $0}'",
+    "on-click": "playerctl play-pause",
+    "on-dblclick": "playerctl next",
+    "on-right-click": "xdotool click 3",  // Симуляция правого клика мыши в окне браузера
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "interval": 1
+},
+
+
+
+
+
+"custom/power": {
+    "format": "⏻",
+    "on-click": "wlogout",
+    "tooltip": false
+  }
+}
