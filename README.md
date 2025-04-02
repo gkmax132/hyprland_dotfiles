@@ -1,14 +1,22 @@
-<details>
-  <summary>Waybar themes</summary>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    details details summary {
+      padding-left: 20px; /* Indents the nested summary */
+    }
+    details > summary {
+      padding-left: 0; /* No indent on the top-level summary */
+    }
+  </style>
+</head>
+<body>
   <details>
-    <summary>Here’s an image, just in case:</summary>
-    <!-- Content for the nested details goes here -->
+    <summary>Waybar themes</summary>
+    <details>
+      <summary>Here’s an image, just in case:</summary>
+      <p>Image content goes here.</p>
+    </details>
   </details>
-</details>
-
-<style>
-  /* Style the nested summary to add indentation */
-  details details summary {
-    padding-left: 20px; /* Adds indentation to the second summary */
-  }
-</style>
+</body>
+</html>
