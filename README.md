@@ -1,18 +1,21 @@
-<details>
+
+<details> 
   <summary> Waybar themes </summary>
-   <ol>
-  <details>
-    <summary> Monochrome </summary> 
-    
-  ![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/monochrome.png)
   
-  </details>
-  </ol>
-  <ol>
-    <details>
+   - 
+     <details> 
+       <summary> Monochrome </summary>
+    
+       ![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/monochrome.png)
+  -
+     <details>
       <summary> Personal </summary>
 
-  ![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/personal.png)    
-    </details>
-  </ol>
-</details>
+      ![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/personal.png) 
+  -
+     <details>
+      <summary> Personal </summary>
+
+      ![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/personal.png) 
+      
+     </details>
