@@ -1,1 +1,1 @@
-hyprland_dotfiles
+## hyprland_dotfiles
