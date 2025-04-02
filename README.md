@@ -1,7 +1,7 @@
 # hyprland_dotfiles
 
- <details> 
-  <summary> waybars </summary>
+ <details>   <summary> waybars </summary> </details>
+
      <details> 
        <summary>Here's an image, just in case:</summary>
     
