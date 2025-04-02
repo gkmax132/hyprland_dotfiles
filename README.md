@@ -138,8 +138,8 @@ This section describes two Bash scripts for managing desktop wallpapers in a Hyp
 
 ### Example
 <details>
-  <summary>Demo of change_wallpaper.sh</summary>
+  <summary>Change_wallpaper.sh</summary>
   
-  ![Wallpaper Change Demo](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/gifs/wallpaper_change.gif)
+  ![Wallpaper Change Demo](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/rofi/change_wallpaper.png)
 </details>
 
