@@ -12,7 +12,7 @@
     <details>
       <summary> Personal </summary>
 
-  ![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/monochrome.png)    
+  ![image](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/personal.png)    
     </details>
   </ol>
 </details>
