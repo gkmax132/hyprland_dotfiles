@@ -82,7 +82,7 @@ The `term.sh` script is a universal launcher for the [Kitty terminal emulator](h
 - Exits with an error code (1) if no valid option is selected.
 
 ### Usage
-- Run `./menu.sh` or use keybind `Super+D` to launch the `rofi` menu.
+- Run `./menu.sh` or use keybind `Alt+D` to launch the `rofi` menu.
 - Select an action using the mouse or keyboard to execute the corresponding script.
 
 <details>
