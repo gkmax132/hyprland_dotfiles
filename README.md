@@ -102,27 +102,27 @@ This section describes two Bash scripts for managing desktop wallpapers in a Hyp
 ### `wallpaper.sh`
 `wallpaper.sh` is a flexible script for setting or restoring wallpapers with customizable display options. It caches the last wallpaper settings for easy restoration.
 
-#### Features
+### Features
 - **Set Wallpaper**: Applies a wallpaper from a specified image path with an optional display mode (e.g., `-m fill`, `-m fit`, defaults to `fill`).
 - **Restore Wallpaper**: Uses the `-r` flag to reload the last wallpaper settings from `~/.cache/swaybg/swaybg_last`.
 - **Cache Management**: Stores the active wallpaper command in `~/.cache/swaybg/swaybg_last`.
 - **Process Control**: Terminates any running `swaybg` instance before applying a new wallpaper.
 
-#### Usage
+### Usage
 - `./wallpaper.sh image_path [option]` - Set a new wallpaper (e.g., `./wallpaper.sh ~/image.jpg -m fit`).
 - `./wallpaper.sh -r` - Restore the last wallpaper.
 
 ### `change_wallpaper.sh`
 `change_wallpaper.sh` provides an interactive menu via `rofi` to select and apply wallpapers from a predefined directory, with visual previews and notifications.
 
-#### Features
+### Features
 - **Interactive Selection**: Lists images from `~/.wallpaper/` in a `rofi` menu with icon previews.
 - **Wallpaper Application**: Applies the selected wallpaper using `swaybg` with a fixed `-m fill` mode.
 - **Cache Management**: Saves the applied wallpaper command to `~/.cache/swaybg/swaybg_last`.
 - **User Feedback**: Sends a notification via `notify-send` with the name of the selected wallpaper.
 - **Error Handling**: Notifies the user if the wallpaper directory is missing.
 
-#### Usage
+### Usage
 - `./change_wallpaper.sh` - Opens the `rofi` menu to choose a wallpaper from `~/.wallpaper/`.
 
 ### Shared Requirements
