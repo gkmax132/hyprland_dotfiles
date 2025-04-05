@@ -1,0 +1,67 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "layer-shell": true,
+  "cssPriority": "user",
+  "control-center-width": 350,
+  "control-center-height": 700,
+  "timeout": 3,
+  "timeout-low": 3,
+  "timeout-critical": 3,
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 10,
+  "notification-window-width": 380,
+  "notification-icon-size": 64,
+  "notification-body-image-height": 180,
+  "notification-body-image-width": 220,
+  "widgets": [
+    "buttons-grid",
+    "title",
+    "dnd",
+    "mpris",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Control Center",
+      "clear-all-button": true,
+      "button-text": "󰃢 Clear"
+    },
+    "dnd": {
+      "text": "Silent Mode"
+    },
+    "label": {
+      "max-lines": 1,
+      "text": " "
+    },
+    "mpris": {
+      "image-size": 80,
+      "image-radius": 16
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "",
+          "command": "sh -c 'echo Button clicked > /tmp/wifi_menu.log; /home/gkmax122/.scripts/wifi_menu.sh'"
+        },
+
+        {
+          "label": "󰐥",
+          "command": "wlogout"
+        },
+        {
+          "label": "",
+          "command": "pavucontrol"
+        }
+      ]
+    },
+    "volume": {
+      "text": "Volume",
+      "show-per-app": true
+    }
+  }
+}
