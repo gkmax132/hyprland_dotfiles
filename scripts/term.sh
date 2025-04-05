@@ -6,17 +6,17 @@ THEME_CONF="$HOME/.config/kitty/current-theme.conf"
 run_kitty() {
     case "$CURRENT_SHELL" in
         "bash")
-            kitty --single-instance --listen-on unix:@mykitty bash -c "kitty @ --to unix:@mykitty set-colors --all $THEME_CONF; exec bash"
+            kitty --single-instance --listen-on unix:@mykitty --override confirm_os_window_close=0 bash -c "kitty @ --to unix:@mykitty set-colors --all $THEME_CONF; exec bash"
             ;;
         "zsh")
-            kitty --single-instance --listen-on unix:@mykitty zsh -c "kitty @ --to unix:@mykitty set-colors --all $THEME_CONF; exec zsh"
+            kitty --single-instance --listen-on unix:@mykitty --override confirm_os_window_close=0 zsh -c "kitty @ --to unix:@mykitty set-colors --all $THEME_CONF; exec zsh"
             ;;
         "fish")
-            kitty --single-instance --listen-on unix:@mykitty fish -c "kitty @ --to unix:@mykitty set-colors --all $THEME_CONF; exec fish"
+            kitty --single-instance --listen-on unix:@mykitty --override confirm_os_window_close=0 fish -c "kitty @ --to unix:@mykitty set-colors --all $THEME_CONF; exec fish"
             ;;
         *)
             echo "Unknown shell: $CURRENT_SHELL. Falling back to bash."
-            kitty --single-instance --listen-on unix:@mykitty bash -c "kitty @ --to unix:@mykitty set-colors --all $THEME_CONF; exec bash"
+            kitty --single-instance --listen-on unix:@mykitty --override confirm_os_window_close=0 bash -c "kitty @ --to unix:@mykitty set-colors --all $THEME_CONF; exec bash"
             ;;
     esac
 }
