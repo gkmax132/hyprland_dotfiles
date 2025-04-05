@@ -7,6 +7,8 @@ SCRIPTS_DIR="$(dirname "$0")/scripts"
 IMAGES_DIR="$(dirname "$0")/images/wallpaper"
 SCRIPTS_TARGET_DIR="$HOME/.scripts"
 WALLPAPER_TARGET_DIR="$HOME/.wallpaper"
+WAYBAR_THEME_DIR="$HOME/.config/waybar/themes/monochrome"
+WAYBAR_CACHE_FILE="$HOME/.cache/waybar_last_theme"
 
 # Function to display help message
 show_help() {
@@ -154,6 +156,20 @@ install_extras() {
     else
         echo "Wallpapers directory not found!"
     fi
+
+    # Launch Waybar with monochrome theme and save to cache
+    if [ -d "$WAYBAR_THEME_DIR" ]; then
+        echo "Launching Waybar with monochrome theme..."
+        # Kill any existing Waybar instances
+        pkill waybar 2>/dev/null || true
+        # Launch Waybar with the specified theme
+        waybar -c "$WAYBAR_THEME_DIR/config.jsonc" -s "$WAYBAR_THEME_DIR/style.css" &
+        # Save theme name to cache file
+        mkdir -p "$(dirname "$WAYBAR_CACHE_FILE")"
+        echo "monochrome" > "$WAYBAR_CACHE_FILE"
+    else
+        echo "Waybar monochrome theme directory not found!"
+    fi
 }
 
 # Function to install new configurations
@@ -176,7 +192,7 @@ install_configs() {
         cp -r "$CONFIG_DIR/$folder_name" "$CONFIG_TARGET_DIR/"
     done
     
-    # Call function to install scripts and wallpapers
+    # Call function to install scripts, wallpapers and launch Waybar
     install_extras
 }
 
