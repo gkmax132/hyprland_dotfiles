@@ -1,0 +1,44 @@
+* { 
+  bg0: #1f1f1f80;
+  background-color: transparent;
+  margin: -5;
+  padding: -4;
+  spacing: -4;
+  border-radius: 0px;
+  text-color: rgba(0, 0, 0, 0);
+}
+window {
+  location: center;
+  width: 1366px;
+  height: 580px;
+  background-color: #00000069;
+  border-radius: 0px;
+  padding: 0px;
+  spacing: 0px;
+  margin: -3;
+  padding: -3;
+  spacing: -3;
+}
+element-icon {
+  size: 330px;
+}
+element {
+  orientation: vertical;
+  spacing: 0px;
+  padding: 0px;
+  border-radius: 0px;
+  border: 0px;
+}
+listview {
+  columns: 4;
+  lines: 1;
+  spacing: 0px;
+  fixed-height: true;
+  fixed-columns: true;
+}
+element selected {
+  padding: 0px;
+  spacing: 0px;
+  background-color: #00005050;
+}
+
