@@ -67,7 +67,7 @@
 .control-center {
     background: alpha(@bg, 0.7);
     border: 2px solid @selected;
-    border-radius: 0px; /* Убраны закругления с основного окна */
+    border-radius: 0px; 
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     padding: 10px;
 }
