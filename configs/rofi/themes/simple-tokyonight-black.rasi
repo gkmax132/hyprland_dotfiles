@@ -1,0 +1,112 @@
+* {
+  font: "Iosevka Nerd Font Medium 13";
+
+  bg0     : #1A1A1A99;
+  bg1     : #26262699;
+  bg2     : #2D2D2D;
+  bg3     : #404040;
+  fg0     : #D9D9D9;
+  fg1     : #B3B3B3;
+  fg2     : #808080;
+  red     : #FF5555;
+  green   : #55FF55;
+  yellow  : #FFFF55;
+  blue    : #5555FF;
+  magenta : #FF55FF;
+  cyan    : #55FFFF;
+
+  accent  : @blue;
+  urgent  : @red;
+
+  background-color : transparent;
+  text-color       : @fg0;
+
+  margin  : 0;
+  padding : 0;
+  spacing : 0;
+}
+
+element-icon, element-text, scrollbar {
+  cursor: pointer;
+}
+
+window {
+  location : center;
+  width    : 380px;
+  x-offset : 4px;
+  y-offset : 26px;
+
+  background-color: @bg1;
+  border: 1px;
+  border-color: @bg3;
+  border-radius: 8px;
+  padding: 0px;
+  max-height: 180px;
+}
+
+inputbar {
+  spacing  : 8px;
+  padding  : 6px 10px;
+  children : [ prompt, entry ];
+
+  background-color: @bg0;
+}
+
+prompt {
+  expand   : false;
+  text     : "Search:";
+  padding  : 0 4px;
+  text-color: @fg1;
+  vertical-align: 0.5;
+}
+
+entry, element-icon, element-text {
+  vertical-align: 0.5;
+}
+
+textbox {
+  padding          : 6px 10px;
+  background-color : @bg2;
+}
+
+listview {
+  padding      : 0px;
+  lines        : 7;
+  columns      : 1;
+  scrollbar    : false;
+  dynamic      : true;
+}
+
+element {
+  padding : 8px 10px;
+  spacing : 8px;
+}
+
+element normal urgent {
+  text-color: @urgent;
+}
+
+element normal active {
+  text-color: @accent;
+}
+
+element alternate active {
+  text-color: @accent;
+}
+
+element selected {
+  text-color       : @accent;
+}
+
+element selected urgent {
+  background-color: @urgent;
+}
+
+element-icon {
+  size: 0.9em;
+}
+
+element-text {
+  text-color: inherit;
+}
+
