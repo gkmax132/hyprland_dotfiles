@@ -142,3 +142,19 @@ This section describes two Bash scripts for managing desktop wallpapers in a Hyp
   ![Wallpaper Change Demo](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/rofi/change_wallpaper.png)
 </details>
 
+## install.sh – Dotfiles Installer
+
+A simple script to install, backup, or restore your dotfiles, scripts, and wallpapers.
+
+### Usage
+
+```bash
+./install.sh [option]
+```
+
+- `-i` — Install configs, scripts, wallpapers, and apply Waybar theme  
+- `-b` — Backup existing configs to `backups/`  
+- `-r` — Restore configs from `backups/`  
+- `-h` — Show help
+
+Includes package installation via `pacman` and optional AUR helper (`yay` or `paru`).
