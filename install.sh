@@ -9,6 +9,7 @@ SCRIPTS_TARGET_DIR="$HOME/.scripts"
 WALLPAPER_TARGET_DIR="$HOME/.wallpaper"
 WAYBAR_THEME_DIR="$HOME/.config/waybar/themes/monochrome"
 WAYBAR_CACHE_FILE="$HOME/.cache/waybar_last_theme"
+ZSHRC_SOURCE="$(dirname "$0")/zshrc"
 
 # Function to display help message
 show_help() {
@@ -46,7 +47,6 @@ restore_configs() {
     echo "Restoring configuration from backups..."
     for folder in "$CONFIG_DIR"/*/; do
         folder_name=$(basename "$folder")
-        
         if [ -d "$BACKUPS_DIR/$folder_name" ]; then
             echo "Restoring $folder_name..."
             sudo chown -R "$USER:$USER" "$CONFIG_TARGET_DIR/$folder_name"
@@ -136,9 +136,62 @@ check_aur_helper() {
     fi
 }
 
+# Function to handle shell selection and configuration
+configure_shell() {
+    echo "Select your preferred shell:"
+    echo "1) Fish (with custom config)"
+    echo "2) Zsh with powerlevel10k and plugins"
+    echo "3) Bash"
+    echo "4) Keep current shell"
+    read -p "Enter your choice (1-4): " shell_choice
+
+    case $shell_choice in
+        1)
+            echo "Installing Fish..."
+            sudo pacman -S --noconfirm fish
+            chsh -s /usr/bin/fish "$USER"
+            ;;
+        2)
+            echo "Installing and configuring Zsh with powerlevel10k..."
+            sudo pacman -S --noconfirm zsh
+            sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+            
+            # Install powerlevel10k
+            git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
+            
+            # Install zsh-autosuggestions plugin
+            git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+            
+            # Install zsh-syntax-highlighting plugin
+            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+            
+            # Copy custom .zshrc if it exists
+            if [ -f "$ZSHRC_SOURCE" ]; then
+                echo "Copying custom .zshrc to $HOME/.zshrc..."
+                cp "$ZSHRC_SOURCE" "$HOME/.zshrc"
+            else
+                echo "Custom .zshrc not found in $(dirname "$0")!"
+            fi
+            
+            echo "Zsh configured with powerlevel10k and plugins"
+            chsh -s /usr/bin/zsh "$USER"
+            ;;
+        3)
+            echo "Setting Bash as shell..."
+            chsh -s /usr/bin/bash "$USER"
+            ;;
+        4)
+            echo "Keeping current shell: $SHELL"
+            ;;
+        *)
+            echo "Invalid choice. Keeping current shell."
+            shell_choice=4  # Default to keeping current shell
+            ;;
+    esac
+}
+
 # Function to install scripts and wallpapers
 install_extras() {
-    # Install scripts
     if [ -d "$SCRIPTS_DIR" ]; then
         echo "Installing scripts to $SCRIPTS_TARGET_DIR..."
         mkdir -p "$SCRIPTS_TARGET_DIR"
@@ -148,7 +201,6 @@ install_extras() {
         echo "Scripts directory not found!"
     fi
 
-    # Install wallpapers
     if [ -d "$IMAGES_DIR" ]; then
         echo "Installing wallpapers to $WALLPAPER_TARGET_DIR..."
         mkdir -p "$WALLPAPER_TARGET_DIR"
@@ -157,14 +209,10 @@ install_extras() {
         echo "Wallpapers directory not found!"
     fi
 
-    # Launch Waybar with monochrome theme and save to cache
     if [ -d "$WAYBAR_THEME_DIR" ]; then
         echo "Launching Waybar with monochrome theme..."
-        # Kill any existing Waybar instances
         pkill waybar 2>/dev/null || true
-        # Launch Waybar with the specified theme
         waybar -c "$WAYBAR_THEME_DIR/config.jsonc" -s "$WAYBAR_THEME_DIR/style.css" &
-        # Save theme name to cache file
         mkdir -p "$(dirname "$WAYBAR_CACHE_FILE")"
         echo "monochrome" > "$WAYBAR_CACHE_FILE"
     else
@@ -186,13 +234,24 @@ install_configs() {
         echo "No AUR helper available. Skipping wlogout installation."
     fi
     
+    # Configure shell before copying configs
+    configure_shell
+    
+    # Copy all configs except fish (fish will be handled separately)
     for folder in "$CONFIG_DIR"/*/; do
         folder_name=$(basename "$folder")
-        echo "Installing $folder_name..."
-        cp -r "$CONFIG_DIR/$folder_name" "$CONFIG_TARGET_DIR/"
+        if [ "$folder_name" != "fish" ]; then
+            echo "Installing $folder_name..."
+            cp -r "$CONFIG_DIR/$folder_name" "$CONFIG_TARGET_DIR/"
+        fi
     done
     
-    # Call function to install scripts, wallpapers and launch Waybar
+    # Copy fish config only if Fish was selected
+    if [ "$shell_choice" = "1" ] && [ -d "$CONFIG_DIR/fish" ]; then
+        echo "Installing fish configuration..."
+        cp -r "$CONFIG_DIR/fish" "$CONFIG_TARGET_DIR/"
+    fi
+    
     install_extras
 }
 
