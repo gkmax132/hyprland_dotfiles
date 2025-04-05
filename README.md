@@ -61,9 +61,9 @@ The `term.sh` script is a universal launcher for the [Kitty terminal emulator](h
     ![Cyberpunk Theme](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/cyberpunk.png)
     </details>
   - <details>
-      <summary>Cyberpunk Red</summary>
+      <summary>Bloodmoon</summary>
       
-    ![Cyberpunk Red Theme](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/cyberpunk_red.png)
+    ![Bloodmoon Theme](https://raw.githubusercontent.com/gkmax132/hyprland_dotfiles/refs/heads/main/images/waybar/cyberpunk_red.png)
     </details>
 </details>
 
