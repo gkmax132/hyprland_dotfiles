@@ -176,7 +176,7 @@ install_extras() {
 install_configs() {
     echo "Installing configurations to ~/.config..."
     
-    sudo pacman -Syu --noconfirm base-devel git ttf-jetbrains-mono ttf-fira-code hyprlock playerctl conky swaync nvim waybar swaybg kitty rofi-wayland nerd-fonts
+    sudo pacman -Syu --noconfirm base-devel git ttf-jetbrains-mono ttf-fira-code hyprlock playerctl conky swaync nvim waybar swaybg kitty rofi-wayland nerd-fonts grim slurp
     
     check_aur_helper
     if [ -n "$AUR_HELPER" ]; then
