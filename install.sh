@@ -3,6 +3,10 @@
 BACKUPS_DIR="$HOME/backups"
 CONFIG_DIR="$(dirname "$0")/configs"
 CONFIG_TARGET_DIR="$HOME/.config"
+SCRIPTS_DIR="$(dirname "$0")/scripts"
+IMAGES_DIR="$(dirname "$0")/images/wallpaper"
+SCRIPTS_TARGET_DIR="$HOME/.scripts"
+WALLPAPER_TARGET_DIR="$HOME/.wallpaper"
 
 # Function to display help message
 show_help() {
@@ -10,7 +14,7 @@ show_help() {
     echo "Manage configuration files for your system."
     echo
     echo "Options:"
-    echo "  -i    Install configuration files from configs/ to ~/.config/"
+    echo "  -i    Install configuration files from configs/ to ~/.config/, scripts to ~/.scripts and wallpapers to ~/.wallpaper"
     echo "  -r    Restore configuration files from backups/ to ~/.config/"
     echo "  -b    Backup existing configuration files to backups/"
     echo "  -h    Show this help message"
@@ -27,11 +31,11 @@ backup=false
 # Check for flags
 while getopts ":ribh" opt; do
     case ${opt} in
-        r ) restore=true ;;      # Restore backup
-        i ) install=true ;;      # Install configuration files
-        b ) backup=true ;;       # Backup configurations
-        h ) show_help ;;         # Show help
-        \? ) echo "Invalid option: -$OPTARG" >&2; exit 1 ;;  # Invalid option
+        r ) restore=true ;;
+        i ) install=true ;;
+        b ) backup=true ;;
+        h ) show_help ;;
+        \? ) echo "Invalid option: -$OPTARG" >&2; exit 1 ;;
     esac
 done
 
@@ -43,11 +47,8 @@ restore_configs() {
         
         if [ -d "$BACKUPS_DIR/$folder_name" ]; then
             echo "Restoring $folder_name..."
-            
-            # Ensure proper permissions before restoring
             sudo chown -R "$USER:$USER" "$CONFIG_TARGET_DIR/$folder_name"
             sudo chmod -R u+rw "$CONFIG_TARGET_DIR/$folder_name"
-
             cp -r "$BACKUPS_DIR/$folder_name" "$CONFIG_TARGET_DIR/"
         else
             echo "Backup for $folder_name not found!"
@@ -133,14 +134,34 @@ check_aur_helper() {
     fi
 }
 
+# Function to install scripts and wallpapers
+install_extras() {
+    # Install scripts
+    if [ -d "$SCRIPTS_DIR" ]; then
+        echo "Installing scripts to $SCRIPTS_TARGET_DIR..."
+        mkdir -p "$SCRIPTS_TARGET_DIR"
+        cp -r "$SCRIPTS_DIR"/* "$SCRIPTS_TARGET_DIR/"
+        chmod +x "$SCRIPTS_TARGET_DIR"/*
+    else
+        echo "Scripts directory not found!"
+    fi
+
+    # Install wallpapers
+    if [ -d "$IMAGES_DIR" ]; then
+        echo "Installing wallpapers to $WALLPAPER_TARGET_DIR..."
+        mkdir -p "$WALLPAPER_TARGET_DIR"
+        cp -r "$IMAGES_DIR"/* "$WALLPAPER_TARGET_DIR/"
+    else
+        echo "Wallpapers directory not found!"
+    fi
+}
+
 # Function to install new configurations
 install_configs() {
     echo "Installing configurations to ~/.config..."
     
-    # Update system and install standard packages without confirmation
     sudo pacman -Syu --noconfirm base-devel git hyprlock playerctl conky swaync nvim waybar swaybg kitty rofi-wayland nerd-fonts
     
-    # Check for AUR helper and install wlogout
     check_aur_helper
     if [ -n "$AUR_HELPER" ]; then
         echo "Installing wlogout using $AUR_HELPER..."
@@ -149,12 +170,14 @@ install_configs() {
         echo "No AUR helper available. Skipping wlogout installation."
     fi
     
-    # Copy configuration files
     for folder in "$CONFIG_DIR"/*/; do
         folder_name=$(basename "$folder")
         echo "Installing $folder_name..."
         cp -r "$CONFIG_DIR/$folder_name" "$CONFIG_TARGET_DIR/"
     done
+    
+    # Call function to install scripts and wallpapers
+    install_extras
 }
 
 # Main logic
@@ -173,5 +196,4 @@ if [ "$backup" = true ]; then
     exit 0
 fi
 
-# Default action (no flags provided)
 show_help
